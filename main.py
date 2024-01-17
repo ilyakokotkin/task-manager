@@ -16,9 +16,9 @@ def main():
     
     try:
         # Schedule the task to start and end at specified times
-        schedule.every().day.at('09:53').do(task_scheduler.start_task)
+        schedule.every().day.at('10:01').do(task_scheduler.start_task)
 
-        schedule.every().day.at('09:54').do(task_scheduler.end_task).tag('end_task')
+        schedule.every().day.at('10:02').do(task_scheduler.end_task).tag('end_task')
         print("Tasks have been scheduled successfully.")
 
     except Exception as e:
@@ -33,7 +33,8 @@ def main():
             time.sleep(1)
 
             # Check if the end task has run by looking for the 'end_task' tag
-            if not schedule.jobs:
+            if not any(job.tags[0] == 'end_task' for job in schedule.jobs):
+                schedule.cancel_job(end_job)
                 break
 
     except Exception as e:
