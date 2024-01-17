@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import patch, MagicMock
-from src.task_scheduler import TaskScheduler
+from src.task_scheduler import *
 import main
 
 # Test initialization of TaskScheduler
