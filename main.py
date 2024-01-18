@@ -1,13 +1,17 @@
 import schedule
 import time
 from src.task_scheduler import TaskScheduler
+from dotenv import load_dotenv
+import os
 
 def main():
-    # Define the path to the task 
-    path_to_task = 'C:\\Program Files\\WindowsApps\\5319275A.WhatsAppDesktop_2.2401.3.0_x64__cv1g1gvanyjgm\\WhatsApp.exe'
-    
+
+    load_dotenv()
+
+    path_to_task = os.getenv('PATH_TO_TASK')
+
     try:
-        task_scheduler = TaskScheduler(path_to_task)
+        task_scheduler = TaskScheduler()
         print(f"TaskScheduler initialized with the path: {path_to_task}")
 
     except Exception as e:
@@ -16,9 +20,9 @@ def main():
     
     try:
         # Schedule the task to start and end at specified times
-        schedule.every().day.at('10:13').do(task_scheduler.start_task)
+        schedule.every().day.at('05:11').do(task_scheduler.start_task)
 
-        schedule.every().day.at('10:14').do(task_scheduler.end_task)
+        schedule.every().day.at('05:12').do(task_scheduler.end_task)
         
         print("Tasks have been scheduled successfully.")
 
