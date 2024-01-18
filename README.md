@@ -24,30 +24,12 @@ pip install schedule
 
 ## Usage
 
-### Command Line Arguments
-
-You can pass the path to the executable as a command line argument:
-
-```bash
-python main.py "path_to__executable"
-```
-
 ### Environment Variables
 
 Alternatively, set the path as an environment variable `TASK_PATH`:
 
 ```bash
 export TASK_PATH="path_to_p_executable"
-```
-
-### Configuration File
-
-Or use a configuration file `config.json` with the following content:
-
-```json
-{
-    "path_to_task": "path_to_task_executable"
-}
 ```
 
 ## Running the Script
