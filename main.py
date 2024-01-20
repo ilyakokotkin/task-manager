@@ -20,6 +20,10 @@ def main():
     
     try:
         # Schedule the task to start and end at specified times
+        schedule.every().day.at('02:14').do(task_scheduler.start_task)
+
+        schedule.every().day.at('02:15').do(task_scheduler.end_task)
+
         schedule.every().day.at('05:11').do(task_scheduler.start_task)
 
         schedule.every().day.at('05:12').do(task_scheduler.end_task)
@@ -32,15 +36,10 @@ def main():
     
     print("Task Scheduler is running. Waiting for tasks to complete.")
     try:
-        # Run scheduled tasks
-        while True:
+        while task_scheduler.remaining_jobs > 0:
             schedule.run_pending()
             time.sleep(1)
-
-            # Check if there is no more jobs scheduled
-            if not schedule.jobs:
-                break
-
+            
     except Exception as e:
         print(f"An error occurred: {e}")
     
