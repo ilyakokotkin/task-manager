@@ -20,13 +20,13 @@ def main():
     
     try:
         # Schedule the task to start and end at specified times
-        schedule.every().day.at('00:20').do(task_scheduler.start_task)
+        schedule.every().day.at('00:19').do(task_scheduler.start_task)
 
-        schedule.every().day.at('00:21').do(task_scheduler.end_task)
+        schedule.every().day.at('00:20').do(task_scheduler.end_task)
 
-        schedule.every().day.at('04:22').do(task_scheduler.start_task)
+        schedule.every().day.at('04:30').do(task_scheduler.start_task)
 
-        schedule.every().day.at('04:23').do(task_scheduler.end_task)
+        schedule.every().day.at('04:31').do(task_scheduler.end_task)
         
         print("Tasks have been scheduled successfully.")
 
