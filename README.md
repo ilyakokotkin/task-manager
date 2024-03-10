@@ -1,5 +1,5 @@
 
-# WhatsApp Scheduler
+# Task Scheduler
 
 This Python script allows you to schedule the opening and closing of desktop task processes at specified times.
 
